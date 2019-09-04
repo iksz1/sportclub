@@ -36199,13 +36199,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
 
 
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
@@ -36219,7 +36222,21 @@ function _iterableToArrayLimit(arr, i) { var _arr = []; var _n = true; var _d = 
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["\n    max-width: 800px;\n    margin: 0 auto;\n"]);
 
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+
+
+var Wrapper = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject());
 
 var Feedback = function Feedback(_ref) {
   var user = _ref.user;
@@ -36229,81 +36246,106 @@ var Feedback = function Feedback(_ref) {
       comments = _useState2[0],
       setComments = _useState2[1];
 
-  var getComments =
-  /*#__PURE__*/
-  function () {
-    var _ref2 = _asyncToGenerator(
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(),
+      _useState4 = _slicedToArray(_useState3, 2),
+      message = _useState4[0],
+      setMessage = _useState4[1];
+
+  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])({}),
+      _useState6 = _slicedToArray(_useState5, 2),
+      errors = _useState6[0],
+      setErrors = _useState6[1];
+
+  Object(react__WEBPACK_IMPORTED_MODULE_1__["useEffect"])(function () {
+    var getComments =
     /*#__PURE__*/
-    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-      var res;
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
-        while (1) {
-          switch (_context.prev = _context.next) {
-            case 0:
-              _context.next = 2;
-              return fetch("/api/comments", {
-                headers: _objectSpread({}, HEADERS, {
-                  Authorization: "Bearer ".concat(user.api_token)
-                })
-              });
+    function () {
+      var _ref2 = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var res, json;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return fetch("/api/comments", {
+                  headers: {
+                    "X-Requested-With": "XMLHttpRequest",
+                    "X-CSRF-TOKEN": document.head.querySelector('meta[name="csrf-token"]').content,
+                    Authorization: "Bearer ".concat(user.api_token)
+                  }
+                });
 
-            case 2:
-              res = _context.sent;
-              _context.t0 = console;
-              _context.next = 6;
-              return res.text();
+              case 2:
+                res = _context.sent;
+                _context.next = 5;
+                return res.json();
 
-            case 6:
-              _context.t1 = _context.sent;
+              case 5:
+                json = _context.sent;
+                setComments(json.data);
 
-              _context.t0.log.call(_context.t0, _context.t1);
-
-            case 8:
-            case "end":
-              return _context.stop();
+              case 7:
+              case "end":
+                return _context.stop();
+            }
           }
-        }
-      }, _callee);
-    }));
+        }, _callee);
+      }));
 
-    return function getComments() {
-      return _ref2.apply(this, arguments);
-    };
-  }();
+      return function getComments() {
+        return _ref2.apply(this, arguments);
+      };
+    }();
+
+    if (user) {
+      getComments();
+    }
+  }, []);
 
   var postComment =
   /*#__PURE__*/
   function () {
     var _ref3 = _asyncToGenerator(
     /*#__PURE__*/
-    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(data) {
-      var res;
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(e) {
+      var data, res, json;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
         while (1) {
           switch (_context2.prev = _context2.next) {
             case 0:
-              _context2.next = 2;
+              e.preventDefault();
+              data = new FormData(e.target);
+              _context2.next = 4;
               return fetch("/api/comments", {
                 method: "POST",
                 headers: {
                   "X-Requested-With": "XMLHttpRequest",
+                  "X-CSRF-TOKEN": document.head.querySelector('meta[name="csrf-token"]').content,
                   Authorization: "Bearer ".concat(user.api_token)
                 },
                 body: data
               });
 
-            case 2:
+            case 4:
               res = _context2.sent;
-              _context2.t0 = console;
-              _context2.next = 6;
-              return res.text();
+              _context2.next = 7;
+              return res.json();
 
-            case 6:
-              _context2.t1 = _context2.sent;
+            case 7:
+              json = _context2.sent;
 
-              _context2.t0.log.call(_context2.t0, _context2.t1);
+              if (res.ok) {
+                setComments(function (prevState) {
+                  return [].concat(_toConsumableArray(prevState), [json]);
+                });
+              } else {
+                setMessage(json.errors ? "" : json.message);
+                setErrors(json.errors || {});
+              }
 
-            case 8:
+            case 9:
             case "end":
               return _context2.stop();
           }
@@ -36314,11 +36356,42 @@ var Feedback = function Feedback(_ref) {
     return function postComment(_x) {
       return _ref3.apply(this, arguments);
     };
-  }(); // max 500 chars
-  // show test instead of form if not logged in
+  }();
 
-
-  return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, "feedback page");
+  return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Wrapper, {
+    className: "mt-4"
+  }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h5", {
+    className: "text-uppercase"
+  }, "Comments"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+    className: "mb-4"
+  }, comments.map(function (cmt) {
+    return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+      key: cmt.id
+    }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("small", {
+      className: "text-primary"
+    }, cmt.author), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", null, cmt.content));
+  })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h5", {
+    className: "text-uppercase"
+  }, "Leave your comment"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, user ? react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("form", {
+    onSubmit: postComment
+  }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+    className: "form-group"
+  }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
+    htmlFor: "commentInput"
+  }, "Comment"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("textarea", {
+    type: "text",
+    className: "form-control",
+    id: "commentInput",
+    name: "content",
+    placeholder: "comment"
+  }), errors.content && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("small", {
+    className: "form-text text-danger"
+  }, errors.content[0])), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
+    type: "submit",
+    className: "btn btn-primary"
+  }, "Submit"), message && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("small", {
+    className: "form-text text-danger"
+  }, message)) : "Only logged in users can write comments."));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Feedback);
@@ -36355,7 +36428,7 @@ function _iterableToArrayLimit(arr, i) { var _arr = []; var _n = true; var _d = 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n    min-width: 300px;\n    max-width: 400px;\n    margin-top: 10vh;\n"]);
+  var data = _taggedTemplateLiteral(["\n    min-width: 300px;\n    max-width: 400px;\n    margin: 10vh auto 0;\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -36719,7 +36792,7 @@ function _iterableToArrayLimit(arr, i) { var _arr = []; var _n = true; var _d = 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n    min-width: 300px;\n    max-width: 400px;\n    margin-top: 10vh;\n"]);
+  var data = _taggedTemplateLiteral(["\n    min-width: 300px;\n    max-width: 400px;\n    margin: 10vh auto 0;\n"]);
 
   _templateObject = function _templateObject() {
     return data;

@@ -33,4 +33,15 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
+    public function writeComment(Comment $comment)
+    {
+        return $this->comments()->save($comment);
+    }
+
 }

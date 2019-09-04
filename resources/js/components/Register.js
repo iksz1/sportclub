@@ -5,7 +5,7 @@ import styled from "styled-components";
 const Wrapper = styled.div`
     min-width: 300px;
     max-width: 400px;
-    margin-top: 10vh;
+    margin: 10vh auto 0;
 `;
 
 const Register = ({ user, onSuccess }) => {
