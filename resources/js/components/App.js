@@ -10,29 +10,26 @@ import Feedback from "./Feedback";
 import Logout from "./Logout";
 
 const Header = styled.header`
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     height: 70px;
     padding: 0 1em;
 `;
 
 const Main = styled.main`
+    min-height: calc(100vh - 100px);
+`;
+
+const Footer = styled.footer`
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 30px;
 `;
-
-const HEADERS = {
-    "X-Requested-With": "XMLHttpRequest",
-    "X-CSRF-TOKEN": document.head.querySelector('meta[name="csrf-token"]').content,
-};
 
 const App = () => {
     const [user, setUser] = useState(null);
 
     return (
-        <div>
+        <>
             <Header className="bg-light">
                 <Nav user={user} />
             </Header>
@@ -45,7 +42,10 @@ const App = () => {
                     <Logout path="/logout" user={user} onSuccess={setUser} />
                 </Router>
             </Main>
-        </div>
+            <Footer className="bg-light">
+                <small className="text-muted">Copyright &copy; 2019 Viačeslav Batik</small>
+            </Footer>
+        </>
     );
 };
 

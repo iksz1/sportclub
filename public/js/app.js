@@ -36102,8 +36102,18 @@ function _iterableToArrayLimit(arr, i) { var _arr = []; var _n = true; var _d = 
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
+function _templateObject3() {
+  var data = _taggedTemplateLiteral(["\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    height: 30px;\n"]);
+
+  _templateObject3 = function _templateObject3() {
+    return data;
+  };
+
+  return data;
+}
+
 function _templateObject2() {
-  var data = _taggedTemplateLiteral(["\n    display: flex;\n    justify-content: center;\n    align-items: center;\n"]);
+  var data = _taggedTemplateLiteral(["\n    min-height: calc(100vh - 100px);\n"]);
 
   _templateObject2 = function _templateObject2() {
     return data;
@@ -36113,7 +36123,7 @@ function _templateObject2() {
 }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    height: 70px;\n    padding: 0 1em;\n"]);
+  var data = _taggedTemplateLiteral(["\n    height: 70px;\n    padding: 0 1em;\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -36136,10 +36146,7 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 var Header = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].header(_templateObject());
 var Main = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].main(_templateObject2());
-var HEADERS = {
-  "X-Requested-With": "XMLHttpRequest",
-  "X-CSRF-TOKEN": document.head.querySelector('meta[name="csrf-token"]').content
-};
+var Footer = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].footer(_templateObject3());
 
 var App = function App() {
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null),
@@ -36147,7 +36154,7 @@ var App = function App() {
       user = _useState2[0],
       setUser = _useState2[1];
 
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Header, {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Header, {
     className: "bg-light"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Nav__WEBPACK_IMPORTED_MODULE_6__["default"], {
     user: user
@@ -36168,7 +36175,11 @@ var App = function App() {
     path: "/logout",
     user: user,
     onSuccess: setUser
-  }))));
+  }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Footer, {
+    className: "bg-light"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", {
+    className: "text-muted"
+  }, "Copyright \xA9 2019 Via\u010Deslav Batik")));
 };
 
 react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(App, null), document.getElementById("app"));
@@ -36518,11 +36529,86 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+function _templateObject5() {
+  var data = _taggedTemplateLiteral(["\n    width: calc(800px * 0.25);\n    border: 1px solid gray;\n    text-align: center;\n    img {\n        width: 100%;\n    }\n    h2 {\n        margin: 10px 5px;\n    }\n    p {\n        margin: 0 5px 5px;\n        font-size: small;\n    }\n    @media (max-width: 400px) {\n        width: 100%;\n        &:not(:last-child) {\n            margin-bottom: 20px;\n        }\n    }\n"]);
+
+  _templateObject5 = function _templateObject5() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject4() {
+  var data = _taggedTemplateLiteral(["\n    height: 300px;\n    width: 100%;\n"]);
+
+  _templateObject4 = function _templateObject4() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject3() {
+  var data = _taggedTemplateLiteral(["\n    display: flex;\n    justify-content: space-evenly;\n    align-items: center;\n    max-width: 800px;\n    height: 400px;\n    margin: 0 auto;\n    padding: 20px 0;\n    @media (max-width: 400px) {\n        flex-wrap: wrap;\n        height: 100%;\n    }\n"]);
+
+  _templateObject3 = function _templateObject3() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject2() {
+  var data = _taggedTemplateLiteral(["\n    background-image: url(\"/img/sportsclub.jpg\");\n    background-repeat: no-repeat;\n    background-size: cover;\n    height: 300px;\n    @media (max-width: 400px) {\n        height: 150px;\n    }\n"]);
+
+  _templateObject2 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["\n    /* min-height: calc(100vh - 70px); */\n    width: 100%;\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
 
+
+var Wrapper = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div(_templateObject());
+var MainImage = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div(_templateObject2());
+var MainContent = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div(_templateObject3());
+var GoogleMap = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div(_templateObject4());
+var Service = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div(_templateObject5());
 
 var MainPage = function MainPage() {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "main page");
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Wrapper, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(MainImage, null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(MainContent, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Service, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: "https://www.garywilliamsphotography.co.uk/img/s/v-3/p3362655641-2.jpg",
+    alt: "star"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Become A Star"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Lorem ipsum dolor sit amet consectetur adipisicing elit.")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Service, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: "https://superdomesports.com/wp-content/uploads/2018/06/landing-team-training.jpg",
+    alt: "team"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Build A Team"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Lorem ipsum dolor sit amet consectetur adipisicing elit.")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Service, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: "https://bloximages.newyork1.vip.townnews.com/kmaland.com/content/tncms/assets/v3/editorial/c/78/c786d96a-cba7-11e9-8c1c-bf934d3275e1/5d69f76bddfcc.image.jpg?resize=400%2C300",
+    alt: "smile"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Learn To Smile"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Lorem ipsum dolor sit amet consectetur adipisicing elit."))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(GoogleMap, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("iframe", {
+    src: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2304.219602278374!2d25.33569661636723!3d54.72335198029072!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46dd96e7d814e149%3A0xdd7887e198efd4c7!2sSaul%C4%97tekio%20al.%2015%2C%20Vilnius%2010221!5e0!3m2!1sen!2slt!4v1567590203992!5m2!1sen!2slt",
+    height: "300",
+    frameBorder: "0",
+    style: {
+      border: 0,
+      width: "100%"
+    },
+    allowFullScreen: ""
+  })));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (MainPage);
@@ -36542,8 +36628,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _reach_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @reach/router */ "./node_modules/@reach/router/es/index.js");
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
-function _templateObject() {
+function _templateObject2() {
   var data = _taggedTemplateLiteral(["\n    a:not(:last-child) {\n        margin-right: 1em;\n    }\n"]);
+
+  _templateObject2 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    max-width: 800px;\n    height: 100%;\n    margin: 0 auto;\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -36557,7 +36653,8 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
-var StyledNav = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].nav(_templateObject());
+var Wrapper = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject());
+var StyledNav = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].nav(_templateObject2());
 
 var isActive = function isActive(_ref) {
   var isCurrent = _ref.isCurrent;
@@ -36570,7 +36667,7 @@ var isActive = function isActive(_ref) {
 
 var Nav = function Nav(_ref2) {
   var user = _ref2.user;
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledNav, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_reach_router__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Wrapper, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledNav, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_reach_router__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     to: "/",
     getProps: isActive
   }, "Main"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_reach_router__WEBPACK_IMPORTED_MODULE_1__["Link"], {

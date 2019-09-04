@@ -1,6 +1,15 @@
 import React from "react";
-import { Link, LinkGetProps } from "@reach/router";
+import { Link } from "@reach/router";
 import styled from "styled-components";
+
+const Wrapper = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 800px;
+    height: 100%;
+    margin: 0 auto;
+`;
 
 const StyledNav = styled.nav`
     a:not(:last-child) {
@@ -14,7 +23,7 @@ const isActive = ({ isCurrent }) => {
 
 const Nav = ({ user }) => {
     return (
-        <>
+        <Wrapper>
             <StyledNav>
                 <Link to={"/"} getProps={isActive}>
                     Main
@@ -39,7 +48,7 @@ const Nav = ({ user }) => {
                     </Link>
                 </StyledNav>
             )}
-        </>
+        </Wrapper>
     );
 };
 
