@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Redirect } from "@reach/router";
 import styled from "styled-components";
+import { UserContext } from "./App";
 
 const Wrapper = styled.div`
     min-width: 300px;
@@ -8,7 +9,8 @@ const Wrapper = styled.div`
     margin: 10vh auto 0;
 `;
 
-const Login = ({ user, onSuccess }) => {
+const Login = () => {
+    const [user, setUser] = useContext(UserContext);
     const [message, setMessage] = useState();
     const [errors, setErrors] = useState({});
 
@@ -25,7 +27,7 @@ const Login = ({ user, onSuccess }) => {
         });
         const json = await res.json();
         if (res.ok) {
-            onSuccess(json);
+            setUser(json);
         } else {
             setMessage(json.errors ? "" : json.message);
             setErrors(json.errors || {});

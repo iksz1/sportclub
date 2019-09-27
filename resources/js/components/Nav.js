@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "@reach/router";
 import styled from "styled-components";
+import { UserContext } from "./App";
 
 const Wrapper = styled.div`
     display: flex;
@@ -21,7 +22,9 @@ const isActive = ({ isCurrent }) => {
     return isCurrent ? { style: { textDecoration: "underline" } } : {};
 };
 
-const Nav = ({ user }) => {
+const Nav = () => {
+    const [user] = useContext(UserContext);
+
     return (
         <Wrapper>
             <StyledNav>

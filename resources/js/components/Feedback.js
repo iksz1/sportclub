@@ -1,12 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import styled from "styled-components";
+import { UserContext } from "./App";
 
 const Wrapper = styled.div`
     max-width: 800px;
     margin: 0 auto;
 `;
 
-const Feedback = ({ user }) => {
+const Feedback = () => {
+    const [user] = useContext(UserContext);
     const [comments, setComments] = useState([]);
     const [message, setMessage] = useState();
     const [errors, setErrors] = useState({});

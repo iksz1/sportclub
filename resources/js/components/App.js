@@ -25,26 +25,28 @@ const Footer = styled.footer`
     height: 30px;
 `;
 
-const App = () => {
-    const [user, setUser] = useState(null);
+export const UserContext = React.createContext();
 
+const App = () => {
     return (
         <>
-            <Header className="bg-light">
-                <Nav user={user} />
-            </Header>
-            <Main>
-                <Router>
-                    <MainPage path="/" />
-                    <Feedback path="/feedback" user={user} />
-                    <Login path="/login" user={user} onSuccess={setUser} />
-                    <Register path="/register" user={user} onSuccess={setUser} />
-                    <Logout path="/logout" user={user} onSuccess={setUser} />
-                </Router>
-            </Main>
-            <Footer className="bg-light">
-                <small className="text-muted">Copyright &copy; 2019 Viačeslav Batik</small>
-            </Footer>
+            <UserContext.Provider value={useState(null)}>
+                <Header className="bg-light">
+                    <Nav />
+                </Header>
+                <Main>
+                    <Router>
+                        <MainPage path="/" />
+                        <Feedback path="/feedback" />
+                        <Login path="/login" />
+                        <Register path="/register" />
+                        <Logout path="/logout" />
+                    </Router>
+                </Main>
+                <Footer className="bg-light">
+                    <small className="text-muted">Copyright &copy; 2019 Viačeslav Batik</small>
+                </Footer>
+            </UserContext.Provider>
         </>
     );
 };
